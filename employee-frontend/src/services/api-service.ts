@@ -47,26 +47,34 @@ export const addEmployee = async (data: any) => {
 	}
 };
 
-export const updateEmployeeById = async (id: number) => {
+export const updateEmployeeById = async (id: number, data: any) => {
 	try {
 		const response = await fetch(`${EMPLOYEE_REST_URL}/${id}`, {
-			method: "patch",
+			method: "PATCH",
 			headers: {
 				Accept: "application/json, text/plain",
 				"Content-type": "application/json",
 			},
-			body: JSON.stringify({
-				firstName: "Jack",
-				lastName: "boswell",
-				email: "test1233533@test1.com",
-				mobile: 612674365356578,
-				startDate: "2023-09-09",
-				contractType: "Permanent",
-				contract: "Full-time",
-			}),
-		});
+			body: JSON.stringify(data),
+		}).then((res) => res.text());
 		console.log(response);
-		return await response.json();
+		return response;
+	} catch (e) {
+		console.log(e);
+	}
+};
+
+export const deleteEmployeeById = async (id: number) => {
+	try {
+		const response = await fetch(`${EMPLOYEE_REST_URL}/${id}`, {
+			method: "delete",
+			headers: {
+				Accept: "application/json, text/plain",
+				"Content-type": "application/json",
+			},
+		}).then((res) => res.text());
+		console.log(response);
+		return response;
 	} catch (e) {
 		console.log(e);
 	}
