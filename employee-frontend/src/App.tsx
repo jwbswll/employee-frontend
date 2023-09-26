@@ -1,37 +1,45 @@
-import { useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 import "./App.css";
-import {
-	addEmployee,
-	// deleteEmployeeById,
-	getEmployees,
-	// updateEmployeeById,
-} from "./services/api-service";
+import { getEmployees } from "./services/api-service";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import EmployeePage from "./pages/EmployeePage/EmployeePage";
+import { EmployeeDTO } from "./Types/Employee";
 
+const initialState = {
+	employees: null,
+	setEmployees: () => {},
+};
+
+export const EmployeeContext = createContext(initialState);
 function App() {
+	const [employees, setEmployees] = useState<EmployeeDTO[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
+
 	useEffect(() => {
-		// deleteEmployeeById(253);
-		getEmployees();
-		// updateEmployeeById(555, {
-		// 	firstName: "Jack",
-		// 	lastName: "boswell",
-		// 	email: "test12321@test1.com",
-		// 	mobile: 612345678,
-		// 	startDate: "2023-09-09",
-		// 	contractType: "Permanent",
-		// 	contract: "Full-time",
-		// });
-		addEmployee({
-			firstName: "Jvack",
-			lastName: "bloswell",
-			email: "tesrt24331@test1.com",
-			mobile: 61545536578,
-			startDate: "2023-09-09",
-			contractType: "Permanent",
-			contract: "Full-time",
-			hours: null,
-		});
+		if (loading) {
+			getEmployees(setEmployees);
+			setLoading(false);
+		}
 	}, []);
-	return <></>;
+
+	return (
+		<>
+			{!loading && (
+				<EmployeeContext.Provider value={{ employees, setEmployees }}>
+					<BrowserRouter>
+						{/* @ts-expect-error Server Component */}
+						<Routes>
+							{/* @ts-expect-error Server Component */}
+							<Route path="/" element={<HomePage />} />
+							{/* @ts-expect-error Server Component */}
+							<Route path="/:id" element={<EmployeePage />} />
+						</Routes>
+					</BrowserRouter>
+				</EmployeeContext.Provider>
+			)}
+		</>
+	);
 }
 
 export default App;

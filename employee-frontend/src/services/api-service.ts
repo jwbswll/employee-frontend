@@ -1,6 +1,8 @@
+import { EmployeeDTO } from "../Types/Employee";
+
 const EMPLOYEE_REST_URL = "http://localhost:8080/employees";
 
-export const getEmployees = async () => {
+export const getEmployees = async (setEmployees: Function) => {
 	const response = await fetch(EMPLOYEE_REST_URL, {
 		method: "get",
 		headers: {
@@ -9,9 +11,8 @@ export const getEmployees = async () => {
 			"Access-Control-Allow-Origin": "*",
 		},
 	});
-	const employeeData = await response.json();
-	console.log(employeeData);
-	return employeeData;
+	const data: EmployeeDTO[] = await response.json();
+	setEmployees(data);
 };
 
 export const getEmployeeById = async (id: number) => {
