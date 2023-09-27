@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router";
 import { EmployeeDTO } from "../../Types/Employee";
 import { deleteEmployeeById } from "../../services/api-service";
-import style from "./EmployeeCard.module.scss";
 
 const EmployeeCard = ({
 	id,
@@ -22,7 +21,7 @@ const EmployeeCard = ({
 				<p className="text-md font-medium text-gray-900">{`${contractType} - ${contract}`}</p>
 				<p className="text-sm text-gray-500">{email}</p>
 			</div>
-			<div className={style.links}>
+			<div>
 				<p className="text-lg">
 					<span
 						className=" text-blue-600 hover:text-blue-950 cursor-pointer"

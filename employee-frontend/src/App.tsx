@@ -19,7 +19,6 @@ function App() {
 		if (loading) {
 			getEmployees(setEmployees);
 			setLoading(false);
-			console.log("hello");
 		}
 	}, [loading]);
 	return (
@@ -28,16 +27,12 @@ function App() {
 				<EmployeeContext.Provider value={employees}>
 					<BrowserRouter>
 						<ScrollToTop />
-						{/* @ts-expect-error Server Component */}
 						<Routes>
-							{/* @ts-expect-error Server Component */}
-							<Route path="/" element={<HomePage setLoading={setLoading} />} />
-							{/* @ts-expect-error Server Component */}
+							<Route path="/" element={<HomePage />} />
 							<Route
 								path="/:id"
 								element={<EmployeePage setLoading={setLoading} />}
 							/>
-							{/* @ts-expect-error Server Component */}
 							<Route
 								path="/add"
 								element={<AddEmployeePage setLoading={setLoading} />}

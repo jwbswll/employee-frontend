@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import style from "./EmployeeList.module.scss";
 import { EmployeeContext } from "../../App";
 import { EmployeeDTO } from "../../Types/Employee";
 import EmployeeCard from "../EmployeeCard/EmployeeCard";
@@ -9,7 +8,7 @@ const EmployeeList = () => {
 	return (
 		<>
 			{employees && (
-				<div className={style.list}>
+				<div>
 					{employees
 						.sort((a, b) => {
 							const nameA = a.lastName?.toLowerCase();
