@@ -7,9 +7,11 @@ import { EmployeeContext } from "../../App";
 const EmployeePage = () => {
 	const employees = useContext(EmployeeContext);
 	let { id } = useParams();
-	const employee = id
-		? employees.find((emp: EmployeeDTO) => emp.id + "" == id)
-		: null;
+	const employee: EmployeeDTO = employees.filter(
+		(emp: EmployeeDTO) => emp.id + "" == id
+	)[0];
+
+	console.log(employee);
 	return <div>{employee?.firstName}</div>;
 };
 

@@ -1,6 +1,6 @@
 import { EmployeeDTO } from "../Types/Employee";
 
-const EMPLOYEE_REST_URL = "http://localhost:8080/employees";
+const EMPLOYEE_REST_URL = "http://localhost:8080/employees/";
 
 export const getEmployees = async (setEmployees: Function) => {
 	const response = await fetch(EMPLOYEE_REST_URL, {
@@ -17,7 +17,7 @@ export const getEmployees = async (setEmployees: Function) => {
 
 export const getEmployeeById = async (id: number) => {
 	try {
-		const employeeData = await fetch(`${EMPLOYEE_REST_URL}/${id}`, {
+		const employeeData = await fetch(`${EMPLOYEE_REST_URL}${id}`, {
 			method: "get",
 			headers: {
 				Accept: "application/json, text/plain",
@@ -50,7 +50,7 @@ export const addEmployee = async (data: any) => {
 
 export const updateEmployeeById = async (id: number, data: any) => {
 	try {
-		const response = await fetch(`${EMPLOYEE_REST_URL}/${id}`, {
+		const response = await fetch(`${EMPLOYEE_REST_URL}${id}`, {
 			method: "PATCH",
 			headers: {
 				Accept: "application/json, text/plain",
@@ -67,7 +67,7 @@ export const updateEmployeeById = async (id: number, data: any) => {
 
 export const deleteEmployeeById = async (id: number) => {
 	try {
-		const response = await fetch(`${EMPLOYEE_REST_URL}/${id}`, {
+		const response = await fetch(`${EMPLOYEE_REST_URL}${id}`, {
 			method: "delete",
 			headers: {
 				Accept: "application/json, text/plain",

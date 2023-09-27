@@ -1,4 +1,4 @@
-export type EmployeeDTO = {
+export interface EmployeeDTO {
 	id: number;
 	firstName?: String;
 	lastName?: String;
@@ -10,4 +10,4 @@ export type EmployeeDTO = {
 	contractType?: String;
 	contract?: String;
 	hours?: Number;
-};
+}

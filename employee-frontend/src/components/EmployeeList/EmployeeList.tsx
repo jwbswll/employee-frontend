@@ -5,13 +5,18 @@ import { EmployeeDTO } from "../../Types/Employee";
 import EmployeeCard from "../EmployeeCard/EmployeeCard";
 
 const EmployeeList = () => {
-	const { employees, setEmployees } = useContext(EmployeeContext);
+	const employees = useContext(EmployeeContext);
+	console.log(employees);
 	return (
-		<div className={style.list}>
-			{employees.map((emp: EmployeeDTO, i: number) => {
-				return <EmployeeCard {...emp} key={i} />;
-			})}
-		</div>
+		<>
+			{employees && (
+				<div className={style.list}>
+					{employees.map((emp: EmployeeDTO, i: number) => {
+						return <EmployeeCard {...emp} key={i} />;
+					})}
+				</div>
+			)}
+		</>
 	);
 };
 

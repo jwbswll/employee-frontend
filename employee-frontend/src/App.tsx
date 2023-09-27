@@ -6,10 +6,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import EmployeePage from "./pages/EmployeePage/EmployeePage";
 import { EmployeeDTO } from "./Types/Employee";
 
-const initialState = {
-	employees: null,
-	setEmployees: () => {},
-};
+const initialState: EmployeeDTO[] = [];
 
 export const EmployeeContext = createContext(initialState);
 function App() {
@@ -26,7 +23,7 @@ function App() {
 	return (
 		<>
 			{!loading && (
-				<EmployeeContext.Provider value={{ employees, setEmployees }}>
+				<EmployeeContext.Provider value={employees}>
 					<BrowserRouter>
 						{/* @ts-expect-error Server Component */}
 						<Routes>
