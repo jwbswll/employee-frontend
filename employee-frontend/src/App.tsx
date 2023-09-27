@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import EmployeePage from "./pages/EmployeePage/EmployeePage";
 import { EmployeeDTO } from "./Types/Employee";
+import AddEmployeePage from "./pages/AddEmployeePage/AddEmployeePage";
 
 const initialState: EmployeeDTO[] = [];
 
@@ -31,6 +32,8 @@ function App() {
 							<Route path="/" element={<HomePage />} />
 							{/* @ts-expect-error Server Component */}
 							<Route path="/:id" element={<EmployeePage />} />
+							{/* @ts-expect-error Server Component */}
+							<Route path="/add" element={<AddEmployeePage />} />
 						</Routes>
 					</BrowserRouter>
 				</EmployeeContext.Provider>

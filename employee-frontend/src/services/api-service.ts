@@ -48,7 +48,7 @@ export const addEmployee = async (data: any) => {
 	}
 };
 
-export const updateEmployeeById = async (id: number, data: any) => {
+export const updateEmployeeById = async (id: number | undefined, data: any) => {
 	try {
 		const response = await fetch(`${EMPLOYEE_REST_URL}${id}`, {
 			method: "PATCH",
@@ -57,7 +57,7 @@ export const updateEmployeeById = async (id: number, data: any) => {
 				"Content-type": "application/json",
 			},
 			body: JSON.stringify(data),
-		}).then((res) => res.text());
+		}).then((res) => res.ok);
 		console.log(response);
 		return response;
 	} catch (e) {

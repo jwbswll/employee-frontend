@@ -1,13 +1,13 @@
 export interface EmployeeDTO {
 	id: number;
-	firstName?: String;
-	lastName?: String;
-	email?: String;
-	mobile?: Number;
-	address?: Number;
-	startDate?: Date;
-	endDate?: Date;
-	contractType?: String;
-	contract?: String;
-	hours?: Number;
+	firstName?: string;
+	lastName?: string;
+	email?: string;
+	mobile?: number;
+	address?: number;
+	startDate?: string;
+	endDate?: string;
+	contractType?: string;
+	contract?: string;
+	hours?: number;
 }

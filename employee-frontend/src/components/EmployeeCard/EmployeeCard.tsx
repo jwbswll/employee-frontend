@@ -13,19 +13,25 @@ const EmployeeCard = ({
 }: EmployeeDTO) => {
 	const nav = useNavigate();
 	return (
-		<div className={style.card}>
-			<div className={style.details}>
-				<p className={style.name}>{`${firstName} ${lastName}`}</p>
-				<p>{`${contractType} - ${contract}`}</p>
-				<p>{email}</p>
+		<div className="p-4 border-t-2 w-70 flex justify-between">
+			<div className="text-left flex flex-col gap-2">
+				<p className="text-md font-bold text-gray-900">{`${firstName} ${lastName}`}</p>
+				<p className="text-md font-medium text-gray-900">{`${contractType} - ${contract}`}</p>
+				<p className="text-sm text-gray-500">{email}</p>
 			</div>
 			<div className={style.links}>
-				<p>
-					<span className={style.link} onClick={() => nav(`/${id}`)}>
+				<p className="text-lg">
+					<span
+						className=" text-blue-600 hover:text-blue-950 cursor-pointer"
+						onClick={() => nav(`/${id}`)}
+					>
 						Edit
 					</span>{" "}
 					|<span> </span>
-					<span className={style.link} onClick={() => deleteEmployeeById(id)}>
+					<span
+						className=" text-blue-600 hover:text-blue-950 cursor-pointer"
+						onClick={() => deleteEmployeeById(id)}
+					>
 						Remove
 					</span>
 				</p>
