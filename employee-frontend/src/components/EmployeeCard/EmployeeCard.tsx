@@ -12,6 +12,9 @@ const EmployeeCard = ({
 	email,
 }: EmployeeDTO) => {
 	const nav = useNavigate();
+	const deleteEmployee = () => {
+		deleteEmployeeById(id);
+	};
 	return (
 		<div className="p-4 border-t-2 w-70 flex justify-between">
 			<div className="text-left flex flex-col gap-2">
@@ -30,7 +33,7 @@ const EmployeeCard = ({
 					|<span> </span>
 					<span
 						className=" text-blue-600 hover:text-blue-950 cursor-pointer"
-						onClick={() => deleteEmployeeById(id)}
+						onClick={() => deleteEmployee()}
 					>
 						Remove
 					</span>

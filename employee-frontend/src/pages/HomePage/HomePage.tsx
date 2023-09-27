@@ -1,11 +1,7 @@
-import { useContext } from "react";
-import { EmployeeContext } from "../../App";
 import EmployeeList from "../../components/EmployeeList/EmployeeList";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-	const employees = useContext(EmployeeContext);
-	console.log(employees);
 	const nav = useNavigate();
 
 	return (
@@ -15,7 +11,7 @@ const HomePage = () => {
 					Employees
 				</h2>
 			</header>
-			<main className="flex justify-center pl-40 pr-40 flex-col">
+			<main className="flex justify-center pl-40 pr-40 pb-20 flex-col">
 				<div className="pt-10 pb-5 flex justify-between items-center">
 					<p>Click edit to view/change an employee's information</p>
 					<button

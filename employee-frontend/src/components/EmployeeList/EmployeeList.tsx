@@ -6,7 +6,6 @@ import EmployeeCard from "../EmployeeCard/EmployeeCard";
 
 const EmployeeList = () => {
 	const employees = useContext(EmployeeContext);
-	console.log(employees);
 	return (
 		<>
 			{employees && (
@@ -17,7 +16,6 @@ const EmployeeList = () => {
 							const nameB = b.lastName?.toLowerCase();
 							if (nameA && nameB) {
 								if (nameA < nameB) {
-									console.log(nameA);
 									return -1;
 								}
 								if (nameA > nameB) {
