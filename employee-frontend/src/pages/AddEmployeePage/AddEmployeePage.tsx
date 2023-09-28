@@ -11,8 +11,8 @@ const AddEmployeePage = ({ setLoading }: any) => {
 	const { register, handleSubmit } = useForm<EmployeeDTO>();
 
 	const onSubmit: SubmitHandler<EmployeeDTO> = async (data) => {
-		console.log(data);
 		const added = await addEmployee(data);
+		// const added = await addEmployeeAxios(data);
 		setSuccess(added?.ok);
 		nav("/");
 		setLoading(true);

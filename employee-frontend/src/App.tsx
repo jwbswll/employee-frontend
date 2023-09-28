@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import "./App.css";
-import { getEmployees } from "./services/api-service";
+import { getEmployeesAxios } from "./services/api-service";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import EmployeePage from "./pages/EmployeePage/EmployeePage";
@@ -17,7 +17,7 @@ function App() {
 
 	useEffect(() => {
 		if (loading) {
-			getEmployees(setEmployees);
+			getEmployeesAxios(setEmployees);
 			setLoading(false);
 		}
 	}, [loading]);
